@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website display properly on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bread Recipe Calculator</title>
+
+    <!-- Connects this HTML file to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Main container for the website -->
+    <main class="container">
+
+        <!-- Website heading -->
+        <header>
+            <h1>Bread Recipe Calculator</h1>
+
+            <p>
+                Select a bread type and the number of loaves you want to make.
+                The ingredient quantities will automatically adjust.
+            </p>
+        </header>
+
+        <!-- User controls -->
+        <section class="controls">
+
+            <!-- Bread type selection -->
+            <div class="form-group">
+                <label for="breadType">
+                    Bread Type
+                </label>
+
+                <select id="breadType">
+
+                    <option value="white">
+                        White Bread
+                    </option>
+
+                    <option value="wholeWheat">
+                        Whole Wheat Bread
+                    </option>
+
+                    <option value="sourdough">
+                        Sourdough
+                    </option>
+
+                    <option value="brioche">
+                        Brioche
+                    </option>
+
+                    <option value="focaccia">
+                        Focaccia
+                    </option>
+
+                </select>
+            </div>
+
+            <!-- Number of loaves -->
+            <div class="form-group">
+                <label for="quantity">
+                    Number of Loaves
+                </label>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    min="1"
+                    max="20"
+                    value="1"
+                >
+            </div>
+
+        </section>
+
+        <!-- Displays information about the selected bread -->
+        <section class="bread-information">
+
+            <h2 id="breadName">
+                White Bread
+            </h2>
+
+            <p id="breadDescription">
+                A simple soft white bread suitable for sandwiches and toast.
+            </p>
+
+        </section>
+
+        <!-- Recipe ingredients -->
+        <section class="recipe-section">
+
+            <h2>
+                Ingredients
+            </h2>
+
+            <!-- JavaScript will create the ingredient rows -->
+            <div id="ingredientList"></div>
+
+        </section>
+
+        <!-- Instructions -->
+        <section class="instructions-section">
+
+            <h2>
+                Instructions
+            </h2>
+
+            <!-- JavaScript will create the instruction steps -->
+            <ol id="instructionList"></ol>
+
+        </section>
+
+    </main>
+
+    <!-- Connects this HTML file to the JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
