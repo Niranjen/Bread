@@ -4,83 +4,381 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- Makes the website display properly on phones and tablets -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        Allows the website to resize correctly
+        on phones and tablets.
+    -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Bread Recipe Calculator</title>
+    <title>Accessible Bread Recipe Calculator</title>
 
-    <!-- Connects this HTML file to the CSS file -->
+    <!-- Connects the CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body data-vision="standard">
 
-    <!-- Main container for the website -->
-    <main class="container">
+    <!--
+        SKIP LINK
 
-        <!-- Website heading -->
+        Allows keyboard and screen-reader users
+        to skip directly to the important content.
+    -->
+    <a href="#mainContent" class="skip-link">
+        Skip to main content
+    </a>
+
+
+    <main
+        id="mainContent"
+        class="container"
+        tabindex="-1"
+    >
+
+        <!-- ===================================================== -->
+        <!-- PAGE HEADING -->
+        <!-- ===================================================== -->
+
         <header>
-            <h1>Bread Recipe Calculator</h1>
+
+            <h1>
+                Bread Recipe Calculator
+            </h1>
 
             <p>
-                Select a bread type and the number of loaves you want to make.
-                The ingredient quantities will automatically adjust.
+                Choose a bread type and the number of loaves.
+                The ingredients will automatically change.
             </p>
+
         </header>
 
-        <!-- User controls -->
-        <section class="controls">
 
-            <!-- Bread type selection -->
+        <!-- ===================================================== -->
+        <!-- ACCESSIBILITY SETTINGS -->
+        <!-- ===================================================== -->
+
+        <section
+            class="accessibility-panel"
+            aria-labelledby="accessibilityHeading"
+        >
+
+            <h2 id="accessibilityHeading">
+                Accessibility Settings
+            </h2>
+
+
+            <!-- ================================================= -->
+            <!-- VISION MODE -->
+            <!-- ================================================= -->
+
             <div class="form-group">
-                <label for="breadType">
-                    Bread Type
+
+                <label for="visionMode">
+                    Colour and Vision Mode
                 </label>
 
-                <select id="breadType">
+                <select
+                    id="visionMode"
+                    name="visionMode"
+                    aria-describedby="visionHelp"
+                >
 
-                    <option value="white">
-                        White Bread
+                    <!-- Normal/default vision -->
+                    <option value="standard">
+                        Standard Vision
                     </option>
 
-                    <option value="wholeWheat">
-                        Whole Wheat Bread
+                    <!-- Reduced sensitivity to red -->
+                    <option value="protanomaly">
+                        Protanomaly - Reduced Red Sensitivity
                     </option>
 
-                    <option value="sourdough">
-                        Sourdough
+                    <!-- Unable to perceive red normally -->
+                    <option value="protanopia">
+                        Protanopia - Red Deficiency
                     </option>
 
-                    <option value="brioche">
-                        Brioche
+                    <!-- Reduced sensitivity to green -->
+                    <option value="deuteranomaly">
+                        Deuteranomaly - Reduced Green Sensitivity
                     </option>
 
-                    <option value="focaccia">
-                        Focaccia
+                    <!-- Unable to perceive green normally -->
+                    <option value="deuteranopia">
+                        Deuteranopia - Green Deficiency
+                    </option>
+
+                    <!-- Reduced sensitivity to blue -->
+                    <option value="tritanomaly">
+                        Tritanomaly - Reduced Blue Sensitivity
+                    </option>
+
+                    <!-- Unable to perceive blue normally -->
+                    <option value="tritanopia">
+                        Tritanopia - Blue Deficiency
+                    </option>
+
+                    <!-- No colour perception -->
+                    <option value="monochromacy">
+                        Monochromacy - Greyscale
+                    </option>
+
+                    <!-- Maximum contrast -->
+                    <option value="highContrast">
+                        High Contrast
                     </option>
 
                 </select>
+
+                <p
+                    id="visionHelp"
+                    class="help-text"
+                >
+                    Select the display that is easiest for you to read.
+                    Information is never communicated by colour alone.
+                </p>
+
             </div>
 
-            <!-- Number of loaves -->
-            <div class="form-group">
-                <label for="quantity">
-                    Number of Loaves
-                </label>
 
-                <input
-                    type="number"
-                    id="quantity"
-                    min="1"
-                    max="20"
-                    value="1"
+            <!-- ================================================= -->
+            <!-- TEXT SIZE -->
+            <!-- ================================================= -->
+
+            <div class="accessibility-group">
+
+                <h3>
+                    Text Size
+                </h3>
+
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        id="decreaseTextButton"
+                    >
+                        A− Smaller
+                    </button>
+
+                    <button
+                        type="button"
+                        id="resetTextButton"
+                    >
+                        A Reset
+                    </button>
+
+                    <button
+                        type="button"
+                        id="increaseTextButton"
+                    >
+                        A+ Larger
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- AUDIO -->
+            <!-- ================================================= -->
+
+            <div class="accessibility-group">
+
+                <h3>
+                    Audio Assistance
+                </h3>
+
+                <p>
+                    The website can read the current recipe aloud.
+                </p>
+
+
+                <!-- Speech speed -->
+                <div class="form-group">
+
+                    <label for="speechRate">
+                        Reading Speed
+                    </label>
+
+                    <select id="speechRate">
+
+                        <option value="0.75">
+                            Slow
+                        </option>
+
+                        <option value="1" selected>
+                            Normal
+                        </option>
+
+                        <option value="1.25">
+                            Fast
+                        </option>
+
+                        <option value="1.5">
+                            Very Fast
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="button-row">
+
+                    <!-- Starts reading -->
+                    <button
+                        type="button"
+                        id="readButton"
+                    >
+                        🔊 Read Recipe Aloud
+                    </button>
+
+                    <!-- Pauses or resumes -->
+                    <button
+                        type="button"
+                        id="pauseButton"
+                    >
+                        ⏸ Pause
+                    </button>
+
+                    <!-- Stops reading -->
+                    <button
+                        type="button"
+                        id="stopButton"
+                    >
+                        ⏹ Stop
+                    </button>
+
+                </div>
+
+
+                <!--
+                    Announces speech state for screen readers.
+                -->
+                <p
+                    id="audioStatus"
+                    class="status-message"
+                    aria-live="polite"
                 >
+                    Audio is ready.
+                </p>
+
             </div>
 
         </section>
 
-        <!-- Displays information about the selected bread -->
-        <section class="bread-information">
+
+        <!-- ===================================================== -->
+        <!-- RECIPE SETTINGS -->
+        <!-- ===================================================== -->
+
+        <section
+            class="recipe-options"
+            aria-labelledby="recipeOptionsHeading"
+        >
+
+            <h2 id="recipeOptionsHeading">
+                Recipe Options
+            </h2>
+
+
+            <div class="controls">
+
+                <!-- Bread type -->
+                <div class="form-group">
+
+                    <label for="breadType">
+                        Bread Type
+                    </label>
+
+                    <select
+                        id="breadType"
+                        name="breadType"
+                    >
+
+                        <option value="white">
+                            White Bread
+                        </option>
+
+                        <option value="wholeWheat">
+                            Whole Wheat Bread
+                        </option>
+
+                        <option value="sourdough">
+                            Sourdough
+                        </option>
+
+                        <option value="brioche">
+                            Brioche
+                        </option>
+
+                        <option value="focaccia">
+                            Focaccia
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Number of loaves -->
+                <div class="form-group">
+
+                    <label for="quantity">
+                        Number of Loaves
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        max="20"
+                        step="1"
+                        value="1"
+                        aria-describedby="quantityHelp"
+                    >
+
+                    <p
+                        id="quantityHelp"
+                        class="help-text"
+                    >
+                        Enter a number between 1 and 20.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!--
+            SCREEN READER ANNOUNCEMENT
+
+            A screen reader will announce changes to the
+            selected recipe without interrupting immediately.
+        -->
+        <div
+            id="recipeAnnouncement"
+            class="sr-only"
+            aria-live="polite"
+            aria-atomic="true"
+        ></div>
+
+
+        <!-- ===================================================== -->
+        <!-- BREAD INFORMATION -->
+        <!-- ===================================================== -->
+
+        <section
+            class="bread-information"
+            aria-labelledby="breadName"
+        >
 
             <h2 id="breadName">
                 White Bread
@@ -90,35 +388,65 @@
                 A simple soft white bread suitable for sandwiches and toast.
             </p>
 
+            <p
+                id="recipeAmount"
+                class="recipe-amount"
+            >
+                Recipe for 1 loaf
+            </p>
+
         </section>
 
-        <!-- Recipe ingredients -->
-        <section class="recipe-section">
 
-            <h2>
+        <!-- ===================================================== -->
+        <!-- INGREDIENTS -->
+        <!-- ===================================================== -->
+
+        <section
+            class="recipe-section"
+            aria-labelledby="ingredientsHeading"
+        >
+
+            <h2 id="ingredientsHeading">
                 Ingredients
             </h2>
 
-            <!-- JavaScript will create the ingredient rows -->
-            <div id="ingredientList"></div>
+            <!--
+                JavaScript inserts the ingredients here.
+            -->
+            <ul
+                id="ingredientList"
+                class="ingredient-list"
+            ></ul>
 
         </section>
 
-        <!-- Instructions -->
-        <section class="instructions-section">
 
-            <h2>
+        <!-- ===================================================== -->
+        <!-- INSTRUCTIONS -->
+        <!-- ===================================================== -->
+
+        <section
+            class="instructions-section"
+            aria-labelledby="instructionsHeading"
+        >
+
+            <h2 id="instructionsHeading">
                 Instructions
             </h2>
 
-            <!-- JavaScript will create the instruction steps -->
+            <!--
+                Ordered list tells a screen reader
+                that these are sequential steps.
+            -->
             <ol id="instructionList"></ol>
 
         </section>
 
     </main>
 
-    <!-- Connects this HTML file to the JavaScript file -->
+
+    <!-- Connects the JavaScript -->
     <script src="script.js"></script>
 
 </body>

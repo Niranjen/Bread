@@ -1,248 +1,794 @@
-/*
-    Removes default spacing and makes width calculations easier.
-*/
+/* ==========================================================
+   GENERAL SETTINGS
+   ========================================================== */
+
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 
 /*
-    Main page styling.
+    CSS variables allow us to change the entire colour
+    scheme without rewriting every CSS rule.
 */
+:root {
+
+    --background: #f4f4f4;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #eeeeee;
+
+    --text: #111111;
+
+    --secondary-text: #444444;
+
+    --border: #222222;
+
+    --accent: #005a9c;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffbf00;
+
+    --font-size: 18px;
+}
+
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f6f2ea;
-    color: #222222;
 
-    min-height: 100vh;
+    margin: 0;
 
-    padding: 30px;
-}
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-
-/*
-    Centres the website and limits its maximum width.
-*/
-.container {
-    max-width: 900px;
-
-    margin: 0 auto;
-
-    background-color: white;
-
-    padding: 35px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-
-/*
-    Main heading.
-*/
-header h1 {
-    font-size: 2.2rem;
-
-    margin-bottom: 10px;
-}
-
-
-/*
-    Description below the heading.
-*/
-header p {
-    color: #555555;
+    font-size: var(--font-size);
 
     line-height: 1.6;
 
-    margin-bottom: 30px;
+    background-color: var(--background);
+
+    color: var(--text);
 }
 
 
+/* ==========================================================
+   STANDARD VISION
+   ========================================================== */
+
 /*
-    Places the controls beside each other when enough space exists.
+    Used by people who do not require a special colour mode.
 */
-.controls {
-    display: flex;
 
-    gap: 20px;
+body[data-vision="standard"] {
 
-    margin-bottom: 30px;
+    --background: #f4f4f4;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #eeeeee;
+
+    --text: #111111;
+
+    --secondary-text: #444444;
+
+    --border: #222222;
+
+    --accent: #005a9c;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffbf00;
 }
 
 
+/* ==========================================================
+   PROTANOMALY
+   ========================================================== */
+
 /*
-    Each input group takes equal space.
+    Reduced red sensitivity.
+
+    Avoid depending on red and green differences.
+
+    Blue and yellow are used decoratively,
+    but meaning is still provided using text,
+    borders and labels.
 */
-.form-group {
-    flex: 1;
+
+body[data-vision="protanomaly"] {
+
+    --background: #f8f8f2;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #e6eef5;
+
+    --text: #111111;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #005ea8;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffd800;
 }
 
 
+/* ==========================================================
+   PROTANOPIA
+   ========================================================== */
+
+body[data-vision="protanopia"] {
+
+    --background: #fafafa;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #e3edf5;
+
+    --text: #111111;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #004f8b;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffdb00;
+}
+
+
+/* ==========================================================
+   DEUTERANOMALY
+   ========================================================== */
+
 /*
-    Input labels.
+    Reduced green sensitivity.
 */
-.form-group label {
-    display: block;
+
+body[data-vision="deuteranomaly"] {
+
+    --background: #f8f8f2;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #e8eef4;
+
+    --text: #111111;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #004f9f;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffd700;
+}
+
+
+/* ==========================================================
+   DEUTERANOPIA
+   ========================================================== */
+
+body[data-vision="deuteranopia"] {
+
+    --background: #fafafa;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #e3edf5;
+
+    --text: #111111;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #004d8c;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffdc00;
+}
+
+
+/* ==========================================================
+   TRITANOMALY
+   ========================================================== */
+
+/*
+    Reduced blue sensitivity.
+
+    The interface avoids depending on blue/yellow
+    differences to communicate meaning.
+*/
+
+body[data-vision="tritanomaly"] {
+
+    --background: #f6f6f6;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #ececec;
+
+    --text: #111111;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #8b1e3f;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffffff;
+}
+
+
+/* ==========================================================
+   TRITANOPIA
+   ========================================================== */
+
+body[data-vision="tritanopia"] {
+
+    --background: #f5f5f5;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #e8e8e8;
+
+    --text: #101010;
+
+    --secondary-text: #333333;
+
+    --border: #111111;
+
+    --accent: #7a1738;
+
+    --accent-text: #ffffff;
+
+    --focus: #ffffff;
+}
+
+
+/* ==========================================================
+   MONOCHROMACY
+   ========================================================== */
+
+/*
+    No colour is required.
+
+    Everything uses shades of grey.
+*/
+
+body[data-vision="monochromacy"] {
+
+    --background: #e8e8e8;
+
+    --surface: #ffffff;
+
+    --surface-secondary: #d9d9d9;
+
+    --text: #000000;
+
+    --secondary-text: #222222;
+
+    --border: #000000;
+
+    --accent: #202020;
+
+    --accent-text: #ffffff;
+
+    --focus: #000000;
+}
+
+
+/* ==========================================================
+   HIGH CONTRAST
+   ========================================================== */
+
+body[data-vision="highContrast"] {
+
+    --background: #000000;
+
+    --surface: #000000;
+
+    --surface-secondary: #111111;
+
+    --text: #ffffff;
+
+    --secondary-text: #ffffff;
+
+    --border: #ffffff;
+
+    --accent: #ffffff;
+
+    --accent-text: #000000;
+
+    --focus: #ffff00;
+}
+
+
+/* ==========================================================
+   SKIP LINK
+   ========================================================== */
+
+.skip-link {
+
+    position: absolute;
+
+    top: -100px;
+
+    left: 10px;
+
+    padding: 12px 18px;
+
+    background-color: #000000;
+
+    color: #ffffff;
 
     font-weight: bold;
 
-    margin-bottom: 8px;
+    z-index: 1000;
 }
 
 
-/*
-    Styling for the select box and number input.
-*/
-select,
-input {
-    width: 100%;
+.skip-link:focus {
 
-    padding: 12px;
-
-    font-size: 1rem;
-
-    border: 1px solid #cccccc;
-
-    border-radius: 6px;
+    top: 10px;
 }
 
 
-/*
-    Adds a visible focus effect for keyboard users.
-*/
-select:focus,
-input:focus {
-    outline: 2px solid #444444;
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
 
-    outline-offset: 2px;
+.container {
+
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    padding: 35px;
+
+    background-color: var(--surface);
+
+    border: 2px solid var(--border);
+
+    border-radius: 10px;
 }
 
 
-/*
-    Selected bread information.
-*/
-.bread-information {
-    background-color: #faf7f1;
+/* ==========================================================
+   HEADINGS
+   ========================================================== */
 
-    padding: 20px;
+h1 {
+
+    margin-top: 0;
+
+    font-size: 2.4rem;
+
+    line-height: 1.2;
+}
+
+
+h2 {
+
+    font-size: 1.6rem;
+
+    margin-top: 0;
+}
+
+
+h3 {
+
+    font-size: 1.2rem;
+}
+
+
+/* ==========================================================
+   TEXT
+   ========================================================== */
+
+p {
+
+    max-width: 75ch;
+}
+
+
+.help-text {
+
+    color: var(--secondary-text);
+
+    margin-top: 6px;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY PANEL
+   ========================================================== */
+
+.accessibility-panel {
+
+    margin-top: 30px;
+
+    margin-bottom: 35px;
+
+    padding: 25px;
+
+    background-color: var(--surface-secondary);
+
+    border: 3px solid var(--border);
 
     border-radius: 8px;
-
-    margin-bottom: 30px;
 }
 
 
-/*
-    Bread title.
-*/
-.bread-information h2 {
-    margin-bottom: 8px;
+.accessibility-group {
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 2px solid var(--border);
 }
 
 
-/*
-    Bread description.
-*/
-.bread-information p {
-    color: #555555;
+/* ==========================================================
+   CONTROLS
+   ========================================================== */
 
-    line-height: 1.5;
+.controls {
+
+    display: flex;
+
+    gap: 25px;
 }
 
 
-/*
-    Recipe and instructions sections.
-*/
-.recipe-section,
-.instructions-section {
-    margin-top: 30px;
-}
+.form-group {
 
+    flex: 1;
 
-/*
-    Section headings.
-*/
-.recipe-section h2,
-.instructions-section h2 {
+    min-width: 0;
+
     margin-bottom: 15px;
 }
 
 
-/*
-    Each ingredient row.
-*/
-.ingredient {
-    display: flex;
+label {
 
-    justify-content: space-between;
+    display: block;
 
-    align-items: center;
+    margin-bottom: 8px;
 
-    padding: 14px 10px;
-
-    border-bottom: 1px solid #dddddd;
-}
-
-
-/*
-    Ingredient name.
-*/
-.ingredient-name {
     font-weight: bold;
 }
 
 
 /*
-    Ingredient quantity.
+    Large controls are useful for:
+
+    - Older users
+    - Low vision users
+    - Touch screen users
+    - Motor impairment
 */
+
+select,
+input {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 10px 12px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 5px;
+
+    background-color: var(--surface);
+
+    color: var(--text);
+
+    font: inherit;
+}
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.button-row {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+button {
+
+    min-height: 48px;
+
+    padding: 10px 18px;
+
+    background-color: var(--accent);
+
+    color: var(--accent-text);
+
+    border: 3px solid var(--border);
+
+    border-radius: 6px;
+
+    font: inherit;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/*
+    We don't rely only on hover because touch-screen
+    users do not necessarily have hover.
+*/
+
+button:hover {
+
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   KEYBOARD FOCUS
+   ========================================================== */
+
+/*
+    Focus is very obvious so a keyboard-only user
+    can see which control is selected.
+*/
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+a:focus-visible {
+
+    outline: 5px solid var(--focus);
+
+    outline-offset: 4px;
+}
+
+
+/* ==========================================================
+   RECIPE INFORMATION
+   ========================================================== */
+
+.recipe-options {
+
+    margin-top: 30px;
+}
+
+
+.bread-information {
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    background-color: var(--surface-secondary);
+
+    border: 3px solid var(--border);
+
+    border-radius: 8px;
+}
+
+
+.recipe-amount {
+
+    padding-left: 12px;
+
+    border-left: 6px solid var(--border);
+
+    font-weight: bold;
+}
+
+
+/* ==========================================================
+   INGREDIENTS
+   ========================================================== */
+
+.recipe-section {
+
+    margin-top: 35px;
+}
+
+
+.ingredient-list {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+.ingredient {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 10px;
+
+    border-bottom: 2px solid var(--border);
+}
+
+
+.ingredient-name {
+
+    font-weight: bold;
+}
+
+
 .ingredient-quantity {
-    color: #444444;
+
+    white-space: nowrap;
 }
 
 
-/*
-    Instruction list spacing.
-*/
-#instructionList {
-    padding-left: 25px;
+/* ==========================================================
+   INSTRUCTIONS
+   ========================================================== */
+
+.instructions-section {
+
+    margin-top: 35px;
 }
 
 
-/*
-    Individual instruction.
-*/
 #instructionList li {
-    margin-bottom: 12px;
 
-    line-height: 1.6;
+    margin-bottom: 15px;
+
+    padding-left: 5px;
 }
 
 
+/* ==========================================================
+   AUDIO STATUS
+   ========================================================== */
+
+.status-message {
+
+    padding: 10px;
+
+    border-left: 5px solid var(--border);
+
+    font-weight: bold;
+}
+
+
+/* ==========================================================
+   SCREEN READER ONLY CONTENT
+   ========================================================== */
+
 /*
-    Makes the controls stack vertically on smaller screens.
+    Visually hidden but still available
+    to screen readers.
+
+    Do NOT use display: none here.
 */
-@media (max-width: 600px) {
 
-    body {
-        padding: 15px;
-    }
+.sr-only {
 
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    padding: 0;
+
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 650px) {
 
     .container {
+
+        margin: 0;
+
         padding: 20px;
+
+        border-left: none;
+
+        border-right: none;
     }
 
 
     .controls {
+
         flex-direction: column;
     }
 
 
-    header h1 {
-        font-size: 1.7rem;
+    .button-row {
+
+        flex-direction: column;
     }
+
+
+    button {
+
+        width: 100%;
+    }
+
+
+    .ingredient {
+
+        flex-direction: column;
+
+        gap: 3px;
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+/*
+    Respects operating-system accessibility settings
+    for users who prefer reduced movement.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
 }

@@ -1,49 +1,35 @@
 /*
-    Bread Recipe Calculator
+    ==========================================================
+    BREAD RECIPE CALCULATOR
+    ==========================================================
 
-    Each recipe below represents the ingredient quantities
-    required to make ONE loaf.
 
-    GENERAL FORMULA:
+    GENERAL SCALING FORMULA:
 
-    newQuantity =
-        originalQuantity *
-        (desiredNumberOfLoaves / originalNumberOfLoaves)
+                            desired number of loaves
+    New Amount = Old Amount × -------------------------
+                            original number of loaves
 
-    Because our original recipes make one loaf:
 
-    originalNumberOfLoaves = 1
+    Every recipe stored below makes ONE loaf.
 
     Therefore:
 
-    newQuantity =
-        originalQuantity * desiredNumberOfLoaves
+    New Amount = Old Amount × Number of Loaves
 */
 
 
-/*
-    Stores all bread recipes.
+/* ==========================================================
+   RECIPES
+   ========================================================== */
 
-    Each bread contains:
-
-    name
-        Name displayed to the user.
-
-    description
-        Short explanation of the bread.
-
-    ingredients
-        Array containing each ingredient.
-
-    instructions
-        Steps used to make the bread.
-*/
 const breadRecipes = {
 
-    /*
-        WHITE BREAD
-        Base recipe = 1 loaf.
-    */
+
+    /* ------------------------------------------------------
+       WHITE BREAD
+       ------------------------------------------------------ */
+
     white: {
 
         name: "White Bread",
@@ -56,37 +42,37 @@ const breadRecipes = {
             {
                 name: "Bread Flour",
                 amount: 500,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Water",
                 amount: 320,
-                unit: "ml"
+                unit: "millilitres"
             },
 
             {
                 name: "Dry Yeast",
                 amount: 7,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Salt",
                 amount: 10,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Sugar",
                 amount: 20,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Butter",
                 amount: 30,
-                unit: "g"
+                unit: "grams"
             }
 
         ],
@@ -97,7 +83,7 @@ const breadRecipes = {
 
             "Add the water and mix until a rough dough forms.",
 
-            "Add the butter and knead the dough until smooth and elastic.",
+            "Add the butter and knead until the dough becomes smooth and elastic.",
 
             "Cover the dough and allow it to rise until approximately doubled in size.",
 
@@ -105,7 +91,7 @@ const breadRecipes = {
 
             "Allow the dough to rise again.",
 
-            "Bake at approximately 190°C until golden brown and cooked through.",
+            "Bake at approximately 190 degrees Celsius until golden brown.",
 
             "Allow the bread to cool before slicing."
 
@@ -113,59 +99,59 @@ const breadRecipes = {
     },
 
 
-    /*
-        WHOLE WHEAT BREAD
-        Base recipe = 1 loaf.
-    */
+    /* ------------------------------------------------------
+       WHOLE WHEAT
+       ------------------------------------------------------ */
+
     wholeWheat: {
 
         name: "Whole Wheat Bread",
 
         description:
-            "A heartier bread made using a combination of whole wheat and bread flour.",
+            "A hearty bread made using whole wheat and bread flour.",
 
         ingredients: [
 
             {
                 name: "Whole Wheat Flour",
                 amount: 350,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Bread Flour",
                 amount: 150,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Water",
                 amount: 350,
-                unit: "ml"
+                unit: "millilitres"
             },
 
             {
                 name: "Dry Yeast",
                 amount: 7,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Salt",
                 amount: 10,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Honey",
                 amount: 25,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Olive Oil",
                 amount: 25,
-                unit: "ml"
+                unit: "millilitres"
             }
 
         ],
@@ -178,24 +164,24 @@ const breadRecipes = {
 
             "Mix until a dough forms.",
 
-            "Knead until the dough becomes smooth and elastic.",
+            "Knead until smooth and elastic.",
 
             "Cover and allow the dough to rise until doubled in size.",
 
             "Shape the dough and place it into a loaf tin.",
 
-            "Allow the dough to complete its second rise.",
+            "Allow the dough to rise again.",
 
-            "Bake at approximately 190°C until cooked through."
+            "Bake at approximately 190 degrees Celsius."
 
         ]
     },
 
 
-    /*
-        SOURDOUGH
-        Base recipe = 1 loaf.
-    */
+    /* ------------------------------------------------------
+       SOURDOUGH
+       ------------------------------------------------------ */
+
     sourdough: {
 
         name: "Sourdough",
@@ -208,25 +194,25 @@ const breadRecipes = {
             {
                 name: "Bread Flour",
                 amount: 500,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Water",
                 amount: 350,
-                unit: "ml"
+                unit: "millilitres"
             },
 
             {
                 name: "Active Sourdough Starter",
                 amount: 100,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Salt",
                 amount: 10,
-                unit: "g"
+                unit: "grams"
             }
 
         ],
@@ -237,9 +223,9 @@ const breadRecipes = {
 
             "Add the active sourdough starter and salt.",
 
-            "Mix thoroughly until combined.",
+            "Mix thoroughly.",
 
-            "Perform several stretch-and-fold cycles during the first part of fermentation.",
+            "Perform several stretch and fold cycles.",
 
             "Allow the dough to bulk ferment.",
 
@@ -247,16 +233,16 @@ const breadRecipes = {
 
             "Allow the shaped dough to proof.",
 
-            "Bake in a preheated oven until the crust is deeply browned."
+            "Bake until the crust is deeply browned."
 
         ]
     },
 
 
-    /*
-        BRIOCHE
-        Base recipe = 1 loaf.
-    */
+    /* ------------------------------------------------------
+       BRIOCHE
+       ------------------------------------------------------ */
+
     brioche: {
 
         name: "Brioche",
@@ -269,13 +255,13 @@ const breadRecipes = {
             {
                 name: "Bread Flour",
                 amount: 500,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Milk",
                 amount: 100,
-                unit: "ml"
+                unit: "millilitres"
             },
 
             {
@@ -287,25 +273,25 @@ const breadRecipes = {
             {
                 name: "Dry Yeast",
                 amount: 7,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Sugar",
                 amount: 60,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Salt",
                 amount: 8,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Butter",
                 amount: 200,
-                unit: "g"
+                unit: "grams"
             }
 
         ],
@@ -320,62 +306,61 @@ const breadRecipes = {
 
             "Gradually add softened butter while kneading.",
 
-            "Continue kneading until the dough becomes smooth and elastic.",
+            "Continue kneading until smooth and elastic.",
 
             "Cover and allow the dough to rise.",
 
             "Shape the dough and place it into a loaf tin.",
 
-            "Allow it to rise again before baking.",
+            "Allow it to rise again.",
 
-            "Bake at approximately 180°C until golden brown."
+            "Bake at approximately 180 degrees Celsius."
 
         ]
     },
 
 
-    /*
-        FOCACCIA
-        Base recipe = approximately one tray.
-        For simplicity the calculator treats one tray as one loaf/unit.
-    */
+    /* ------------------------------------------------------
+       FOCACCIA
+       ------------------------------------------------------ */
+
     focaccia: {
 
         name: "Focaccia",
 
         description:
-            "A soft Italian-style flat bread with olive oil and a crisp surface.",
+            "A soft Italian-style flatbread containing olive oil.",
 
         ingredients: [
 
             {
                 name: "Bread Flour",
                 amount: 500,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Water",
                 amount: 400,
-                unit: "ml"
+                unit: "millilitres"
             },
 
             {
                 name: "Dry Yeast",
                 amount: 7,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Salt",
                 amount: 10,
-                unit: "g"
+                unit: "grams"
             },
 
             {
                 name: "Olive Oil",
                 amount: 40,
-                unit: "ml"
+                unit: "millilitres"
             }
 
         ],
@@ -394,13 +379,13 @@ const breadRecipes = {
 
             "Stretch the dough carefully to fill the tray.",
 
-            "Allow it to rise again.",
+            "Allow the dough to rise again.",
 
             "Press dimples into the surface using your fingers.",
 
-            "Drizzle additional olive oil over the surface if desired.",
+            "Drizzle olive oil over the surface if desired.",
 
-            "Bake at approximately 220°C until golden brown."
+            "Bake at approximately 220 degrees Celsius."
 
         ]
     }
@@ -408,74 +393,126 @@ const breadRecipes = {
 };
 
 
-/*
-    Gets the HTML elements that JavaScript needs to control.
-*/
+/* ==========================================================
+   GET HTML ELEMENTS
+   ========================================================== */
+
 const breadTypeSelect =
     document.getElementById("breadType");
+
 
 const quantityInput =
     document.getElementById("quantity");
 
+
 const breadName =
     document.getElementById("breadName");
+
 
 const breadDescription =
     document.getElementById("breadDescription");
 
+
+const recipeAmount =
+    document.getElementById("recipeAmount");
+
+
 const ingredientList =
     document.getElementById("ingredientList");
+
 
 const instructionList =
     document.getElementById("instructionList");
 
 
-/*
-    Main function used to update the recipe.
+const recipeAnnouncement =
+    document.getElementById("recipeAnnouncement");
 
-    This function:
 
-    1. Gets the selected bread.
-    2. Gets the requested number of loaves.
-    3. Updates the bread information.
-    4. Scales every ingredient.
-    5. Displays the instructions.
-*/
+/* Accessibility */
+
+const visionMode =
+    document.getElementById("visionMode");
+
+
+const decreaseTextButton =
+    document.getElementById("decreaseTextButton");
+
+
+const resetTextButton =
+    document.getElementById("resetTextButton");
+
+
+const increaseTextButton =
+    document.getElementById("increaseTextButton");
+
+
+/* Audio */
+
+const readButton =
+    document.getElementById("readButton");
+
+
+const pauseButton =
+    document.getElementById("pauseButton");
+
+
+const stopButton =
+    document.getElementById("stopButton");
+
+
+const speechRate =
+    document.getElementById("speechRate");
+
+
+const audioStatus =
+    document.getElementById("audioStatus");
+
+
+
+/* ==========================================================
+   RECIPE CALCULATION
+   ========================================================== */
+
 function updateRecipe() {
 
+
     /*
-        Gets the currently selected bread key.
+        Gets the selected bread.
 
-        Examples:
+        Example:
 
-        white
-        sourdough
-        brioche
+        "white"
+        "sourdough"
     */
+
     const selectedBreadType =
         breadTypeSelect.value;
 
 
     /*
-        Gets the full recipe object using the selected key.
+        Find the selected recipe.
     */
+
     const recipe =
         breadRecipes[selectedBreadType];
 
 
     /*
-        Converts the input value into a number.
+        Convert the quantity input into a number.
     */
+
     let numberOfLoaves =
         Number(quantityInput.value);
 
 
     /*
-        Prevents zero, negative numbers or invalid input.
+        Validate the number.
     */
+
     if (
-        numberOfLoaves < 1 ||
-        Number.isNaN(numberOfLoaves)
+        Number.isNaN(numberOfLoaves) ||
+        numberOfLoaves < 1
     ) {
 
         numberOfLoaves = 1;
@@ -485,52 +522,69 @@ function updateRecipe() {
 
 
     /*
-        Updates the bread heading.
+        Maximum of 20 loaves.
     */
+
+    if (numberOfLoaves > 20) {
+
+        numberOfLoaves = 20;
+
+        quantityInput.value = 20;
+    }
+
+
+    /*
+        Update bread name.
+    */
+
     breadName.textContent =
         recipe.name;
 
 
     /*
-        Updates the bread description.
+        Update bread description.
     */
+
     breadDescription.textContent =
         recipe.description;
 
 
     /*
-        Removes the previous ingredients before creating
-        the updated ingredient list.
+        Correct singular/plural wording.
     */
+
+    if (numberOfLoaves === 1) {
+
+        recipeAmount.textContent =
+            "Recipe for 1 loaf";
+
+    } else {
+
+        recipeAmount.textContent =
+            `Recipe for ${numberOfLoaves} loaves`;
+    }
+
+
+    /*
+        Remove old ingredients.
+    */
+
     ingredientList.innerHTML = "";
 
 
     /*
-        Goes through every ingredient in the selected recipe.
+        Calculate each new ingredient amount.
     */
+
     recipe.ingredients.forEach(function (ingredient) {
+
 
         /*
             GENERAL FORMULA:
 
-            scaled quantity
-            =
-            original quantity
-            ×
-            desired number of loaves
-            /
-            original number of loaves
-
-
-            Because the base recipe is for one loaf:
-
-            original number of loaves = 1
-
-            Therefore:
-
-            scaled quantity
-            =
-            original quantity × number of loaves
+            New Amount
+                =
+            Original Amount × Number of Loaves
         */
 
         const scaledAmount =
@@ -538,148 +592,161 @@ function updateRecipe() {
 
 
         /*
-            Creates a new row for the ingredient.
+            Create a proper list item.
         */
-        const ingredientRow =
-            document.createElement("div");
+
+        const ingredientItem =
+            document.createElement("li");
+
+
+        ingredientItem.classList.add(
+            "ingredient"
+        );
 
 
         /*
-            Gives the row the CSS class "ingredient".
+            Ingredient name.
         */
-        ingredientRow.classList.add("ingredient");
 
-
-        /*
-            Creates the ingredient name.
-        */
-        const ingredientName =
+        const nameElement =
             document.createElement("span");
 
 
-        ingredientName.classList.add(
+        nameElement.classList.add(
             "ingredient-name"
         );
 
 
-        ingredientName.textContent =
+        nameElement.textContent =
             ingredient.name;
 
 
         /*
-            Creates the displayed quantity.
+            Ingredient quantity.
         */
-        const ingredientQuantity =
+
+        const quantityElement =
             document.createElement("span");
 
 
-        ingredientQuantity.classList.add(
+        quantityElement.classList.add(
             "ingredient-quantity"
         );
 
 
         /*
-            Displays the calculated amount and unit.
-
-            Example:
-
-            1000 g
-            640 ml
-            8 eggs
+            Handle ingredients with and without units.
         */
-        ingredientQuantity.textContent =
-            formatAmount(scaledAmount) +
-            " " +
-            ingredient.unit;
+
+        if (ingredient.unit === "") {
+
+            quantityElement.textContent =
+                formatAmount(scaledAmount);
+
+        } else {
+
+            quantityElement.textContent =
+                `${formatAmount(scaledAmount)} ${ingredient.unit}`;
+        }
 
 
         /*
-            Adds the name and quantity into the ingredient row.
+            Add both elements to the ingredient row.
         */
-        ingredientRow.appendChild(
-            ingredientName
+
+        ingredientItem.appendChild(
+            nameElement
         );
 
 
-        ingredientRow.appendChild(
-            ingredientQuantity
+        ingredientItem.appendChild(
+            quantityElement
         );
 
 
         /*
-            Adds the complete ingredient row to the webpage.
+            Add row to ingredient list.
         */
+
         ingredientList.appendChild(
-            ingredientRow
+            ingredientItem
         );
 
     });
 
 
     /*
-        Updates the instructions after updating the ingredients.
+        Update preparation instructions.
     */
-    displayInstructions(recipe.instructions);
+
+    displayInstructions(
+        recipe.instructions
+    );
+
+
+    /*
+        Inform screen-reader users that
+        the recipe changed.
+    */
+
+    const loafWord =
+        numberOfLoaves === 1
+            ? "loaf"
+            : "loaves";
+
+
+    recipeAnnouncement.textContent =
+        `Recipe updated. ${recipe.name}, ${numberOfLoaves} ${loafWord}.`;
 }
 
 
-/*
-    Displays the preparation instructions.
-*/
+
+/* ==========================================================
+   INSTRUCTIONS
+   ========================================================== */
+
 function displayInstructions(instructions) {
 
-    /*
-        Clears instructions from the previous bread.
-    */
+
     instructionList.innerHTML = "";
 
 
-    /*
-        Goes through every instruction.
-    */
     instructions.forEach(function (instruction) {
 
-        /*
-            Creates an <li> element.
-        */
+
         const listItem =
             document.createElement("li");
 
 
-        /*
-            Adds the instruction text.
-        */
         listItem.textContent =
             instruction;
 
 
-        /*
-            Adds the instruction to the ordered list.
-        */
         instructionList.appendChild(
             listItem
         );
 
     });
+
 }
 
 
-/*
-    Formats ingredient numbers.
 
-    For example:
+/* ==========================================================
+   NUMBER FORMATTING
+   ========================================================== */
 
-    500     -> 500
-    500.5   -> 500.5
-    500.333 -> 500.33
-
-    This prevents unnecessarily long decimal values.
-*/
 function formatAmount(amount) {
 
+
     /*
-        Checks whether the number has no decimal component.
+        Whole numbers remain whole numbers.
+
+        Example:
+
+        500 instead of 500.00
     */
+
     if (Number.isInteger(amount)) {
 
         return amount;
@@ -687,16 +754,569 @@ function formatAmount(amount) {
 
 
     /*
-        Otherwise display at most two decimal places.
+        Decimal values are limited to
+        two decimal places.
     */
-    return Number(amount.toFixed(2));
+
+    return Number(
+        amount.toFixed(2)
+    );
+
 }
 
 
+
+/* ==========================================================
+   VISION MODE
+   ========================================================== */
+
+function changeVisionMode() {
+
+
+    /*
+        Read the selected setting.
+    */
+
+    const selectedMode =
+        visionMode.value;
+
+
+    /*
+        Place the selection on the body.
+
+        CSS rules such as:
+
+        body[data-vision="protanopia"]
+
+        then change the colours.
+    */
+
+    document.body.setAttribute(
+        "data-vision",
+        selectedMode
+    );
+
+
+    /*
+        Tell screen-reader users that
+        the setting changed.
+    */
+
+    const selectedName =
+        visionMode.options[
+            visionMode.selectedIndex
+        ].text;
+
+
+    recipeAnnouncement.textContent =
+        `Vision mode changed to ${selectedName}.`;
+
+}
+
+
+
+/* ==========================================================
+   TEXT SIZE
+   ========================================================== */
+
+
 /*
-    Runs updateRecipe() whenever the user
-    selects a different bread.
+    Default text size.
 */
+
+let currentFontSize = 18;
+
+
+/*
+    Minimum and maximum values.
+*/
+
+const minimumFontSize = 16;
+
+const maximumFontSize = 30;
+
+
+
+function applyFontSize() {
+
+
+    /*
+        Change the CSS variable.
+    */
+
+    document.documentElement.style.setProperty(
+        "--font-size",
+        `${currentFontSize}px`
+    );
+
+
+    /*
+        Announce change to assistive technology.
+    */
+
+    recipeAnnouncement.textContent =
+        `Text size changed to ${currentFontSize} pixels.`;
+
+}
+
+
+
+function increaseTextSize() {
+
+
+    /*
+        Increase by 2px until maximum.
+    */
+
+    currentFontSize =
+        Math.min(
+            currentFontSize + 2,
+            maximumFontSize
+        );
+
+
+    applyFontSize();
+
+}
+
+
+
+function decreaseTextSize() {
+
+
+    /*
+        Decrease by 2px until minimum.
+    */
+
+    currentFontSize =
+        Math.max(
+            currentFontSize - 2,
+            minimumFontSize
+        );
+
+
+    applyFontSize();
+
+}
+
+
+
+function resetTextSize() {
+
+
+    currentFontSize = 18;
+
+
+    applyFontSize();
+
+}
+
+
+
+/* ==========================================================
+   CREATE TEXT FOR AUDIO
+   ========================================================== */
+
+function buildRecipeSpeech() {
+
+
+    /*
+        Get selected recipe.
+    */
+
+    const selectedBreadType =
+        breadTypeSelect.value;
+
+
+    const recipe =
+        breadRecipes[selectedBreadType];
+
+
+    /*
+        Get quantity.
+    */
+
+    let numberOfLoaves =
+        Number(quantityInput.value);
+
+
+    if (
+        Number.isNaN(numberOfLoaves) ||
+        numberOfLoaves < 1
+    ) {
+
+        numberOfLoaves = 1;
+    }
+
+
+    /*
+        Correct singular/plural.
+    */
+
+    const loafWord =
+        numberOfLoaves === 1
+            ? "loaf"
+            : "loaves";
+
+
+    /*
+        Begin spoken text.
+    */
+
+    let speechText =
+        `${recipe.name}. `;
+
+
+    speechText +=
+        `Recipe for ${numberOfLoaves} ${loafWord}. `;
+
+
+    speechText +=
+        `${recipe.description} `;
+
+
+    /*
+        Ingredient heading.
+    */
+
+    speechText +=
+        "Ingredients. ";
+
+
+    /*
+        Add every scaled ingredient.
+    */
+
+    recipe.ingredients.forEach(function (ingredient) {
+
+
+        const scaledAmount =
+            ingredient.amount * numberOfLoaves;
+
+
+        speechText +=
+            `${ingredient.name}, `;
+
+
+        speechText +=
+            `${formatAmount(scaledAmount)}`;
+
+
+        /*
+            Add the unit when one exists.
+        */
+
+        if (ingredient.unit !== "") {
+
+            speechText +=
+                ` ${ingredient.unit}`;
+        }
+
+
+        speechText +=
+            ". ";
+
+    });
+
+
+    /*
+        Instructions heading.
+    */
+
+    speechText +=
+        "Instructions. ";
+
+
+    /*
+        Number each instruction when reading.
+    */
+
+    recipe.instructions.forEach(
+        function (instruction, index) {
+
+
+            speechText +=
+                `Step ${index + 1}. `;
+
+
+            speechText +=
+                `${instruction} `;
+
+        }
+    );
+
+
+    return speechText;
+
+}
+
+
+
+/* ==========================================================
+   READ RECIPE ALOUD
+   ========================================================== */
+
+function readRecipeAloud() {
+
+
+    /*
+        Check whether the browser supports
+        speech synthesis.
+    */
+
+    if (
+        !("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)
+    ) {
+
+        audioStatus.textContent =
+            "Text-to-speech is not supported by this browser.";
+
+        return;
+    }
+
+
+    /*
+        Stop anything that is already being read.
+
+        This prevents multiple recipes from
+        speaking over each other.
+    */
+
+    window.speechSynthesis.cancel();
+
+
+    /*
+        Build the full recipe text.
+    */
+
+    const textToRead =
+        buildRecipeSpeech();
+
+
+    /*
+        Create an utterance.
+    */
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            textToRead
+        );
+
+
+    /*
+        Australian English.
+
+        The browser will choose an available
+        suitable voice.
+    */
+
+    utterance.lang =
+        "en-AU";
+
+
+    /*
+        Reading speed selected by user.
+
+        Examples:
+
+        0.75 = slower
+        1    = normal
+        1.25 = faster
+    */
+
+    utterance.rate =
+        Number(speechRate.value);
+
+
+    /*
+        Standard pitch.
+    */
+
+    utterance.pitch = 1;
+
+
+    /*
+        Standard volume.
+    */
+
+    utterance.volume = 1;
+
+
+    /*
+        When speech starts.
+    */
+
+    utterance.addEventListener(
+        "start",
+        function () {
+
+            audioStatus.textContent =
+                "Reading recipe aloud.";
+
+            pauseButton.textContent =
+                "⏸ Pause";
+        }
+    );
+
+
+    /*
+        When reading finishes.
+    */
+
+    utterance.addEventListener(
+        "end",
+        function () {
+
+            audioStatus.textContent =
+                "Finished reading the recipe.";
+
+            pauseButton.textContent =
+                "⏸ Pause";
+        }
+    );
+
+
+    /*
+        Handle speech errors.
+    */
+
+    utterance.addEventListener(
+        "error",
+        function () {
+
+            audioStatus.textContent =
+                "The recipe could not be read aloud.";
+        }
+    );
+
+
+    /*
+        Start speaking.
+    */
+
+    window.speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+
+
+/* ==========================================================
+   PAUSE / RESUME AUDIO
+   ========================================================== */
+
+function pauseOrResumeAudio() {
+
+
+    /*
+        Check speech synthesis support.
+    */
+
+    if (!("speechSynthesis" in window)) {
+
+        return;
+    }
+
+
+    /*
+        If currently paused,
+        resume reading.
+    */
+
+    if (window.speechSynthesis.paused) {
+
+
+        window.speechSynthesis.resume();
+
+
+        audioStatus.textContent =
+            "Reading resumed.";
+
+
+        pauseButton.textContent =
+            "⏸ Pause";
+
+
+        return;
+    }
+
+
+    /*
+        If currently speaking,
+        pause reading.
+    */
+
+    if (window.speechSynthesis.speaking) {
+
+
+        window.speechSynthesis.pause();
+
+
+        audioStatus.textContent =
+            "Reading paused.";
+
+
+        pauseButton.textContent =
+            "▶ Resume";
+
+
+        return;
+    }
+
+
+    /*
+        If nothing is currently playing,
+        start the recipe.
+    */
+
+    readRecipeAloud();
+
+}
+
+
+
+/* ==========================================================
+   STOP AUDIO
+   ========================================================== */
+
+function stopAudio() {
+
+
+    if (!("speechSynthesis" in window)) {
+
+        return;
+    }
+
+
+    /*
+        Cancel current speech.
+    */
+
+    window.speechSynthesis.cancel();
+
+
+    audioStatus.textContent =
+        "Reading stopped.";
+
+
+    pauseButton.textContent =
+        "⏸ Pause";
+
+}
+
+
+
+/* ==========================================================
+   EVENT LISTENERS
+   ========================================================== */
+
+
+/*
+    Change bread.
+*/
+
 breadTypeSelect.addEventListener(
     "change",
     updateRecipe
@@ -704,12 +1324,9 @@ breadTypeSelect.addEventListener(
 
 
 /*
-    Runs updateRecipe() whenever the user
-    changes the number of loaves.
-
-    Using "input" instead of "change" means the website
-    updates immediately while the user changes the value.
+    Change quantity.
 */
+
 quantityInput.addEventListener(
     "input",
     updateRecipe
@@ -717,6 +1334,62 @@ quantityInput.addEventListener(
 
 
 /*
-    Displays the initial recipe when the webpage first loads.
+    Change colour/vision mode.
 */
+
+visionMode.addEventListener(
+    "change",
+    changeVisionMode
+);
+
+
+/*
+    Text controls.
+*/
+
+increaseTextButton.addEventListener(
+    "click",
+    increaseTextSize
+);
+
+
+decreaseTextButton.addEventListener(
+    "click",
+    decreaseTextSize
+);
+
+
+resetTextButton.addEventListener(
+    "click",
+    resetTextSize
+);
+
+
+/*
+    Audio controls.
+*/
+
+readButton.addEventListener(
+    "click",
+    readRecipeAloud
+);
+
+
+pauseButton.addEventListener(
+    "click",
+    pauseOrResumeAudio
+);
+
+
+stopButton.addEventListener(
+    "click",
+    stopAudio
+);
+
+
+
+/* ==========================================================
+   INITIAL PAGE LOAD
+   ========================================================== */
+
 updateRecipe();
