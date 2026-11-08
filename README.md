@@ -1,2 +1,2 @@
 # Bread
-Website to neasure all kinds of bread ingredients. 
+Website to measure all kinds of bread ingredients. 
